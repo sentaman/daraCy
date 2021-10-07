@@ -1,0 +1,12 @@
+{
+    "organizationDropdown" : "input[placeholder='Select']",
+    "boardTitleInput" : "input[name='name']",
+    "xBtnModal" : "button[name='close-new-board-modal-btn']",
+    "previousStep" : "button[name='prev_btn']",
+    "nextStep" : "name='next_btn'",
+    "checkScrumBtn" : "span[name='type_scrum']",
+    "checkKanbanBtn" : "span[name='type_kanban']",
+    "dropdownConfigurationFrom" : "div:nth-of-type(1) > .vs-input-border > .el-select.vs-c-new-board-select > .el-input > .el-input__inner",
+    "dropdownTeamMembersFrom" : "div:nth-of-type(2) > .vs-input-border > .el-select.vs-c-new-board-select > .el-input > .el-input__inner",
+    "uploadBoardLogo" : "a[class='vs-c-btn vs-c-btn--rounded-square vs-u-width--full']"
+}

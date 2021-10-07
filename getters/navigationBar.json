@@ -1,0 +1,13 @@
+{
+    "siteLogo" : "div[class='vs-c-site-logo vs-u-cursor--pointer']",
+    "hitSelectedOrganization" : "div[class='vs-c-img--avatar vs-u-cursor--pointer']",
+    "hitCyBoard" : "h1[title='CyBoard']",
+    "hitSearchBtn" : "div[class='vs-c-project-search']",
+    "searchInput" : "input[type='text']",
+    "showFinishedSprintsBtn" : "button[name='show_finished_sprints']",
+    "showTableView" : " div[class='vs-c-sprint-info']> button:nth-of-type(2)",
+    "hitMoreOptions" : "div[class='el-dropdown']",
+    "hitShowFilter" : "div[class='vs-c-dropdown-wrapper vs-c-filter']",
+    "hitShowNotification" : "div[class='vs-c-dropdown-wrapper vs-c-notification']",
+    "hitHowItWorks" : ".vs-l-project__options > .el-tooltip.vs-c-btn.vs-c-btn--link"
+}

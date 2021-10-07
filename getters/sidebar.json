@@ -1,0 +1,38 @@
+{   
+    "mainSidebar" : {
+        "hitCollapseSidebar" : ".vs-c-sidebar-info",
+        "hitAddOrganization" : "div:nth-of-type(20)  .vs-c-list > li:nth-of-type(1) > a > span",
+        "hitAddBoard" : "li:nth-of-type(2) > a > span",
+        "hitImportBoardFrom" : "li:nth-of-type(3) > a",
+        "hitOrganizationDropdown" : "div.vs-c-workspace-separator",
+        "hitMyOrganizationDropdown" : "li[id='1518']",
+        "hitCyBoard" : "a[href='/boards/952']",
+        "hitAddNewBoardInMyOrganization" : "div:nth-of-type(20)  .vs-c-list span",
+        "hitStarCyBoard" : "a[href='/boards/952'] > div > svg.vs-c-icon"
+    },
+
+    "myOrganizationSidebar": {
+        "boardsLink" : "a[href='/organizations/1518/boards']",
+        "projectsLink" : "a[href='/organizations/1518/projects']",
+        "invoicingLink" : "a[href='/organizations/1518/invoice']",
+        "clientsLink" : "a[href='/organizations/1518/clients']",
+        "worklogsLink" : "a[href='/organizations/1518/worklogs']",
+        "teamManagementLink" : "a[href='/organizations/1518/team']",
+        "reportsLink" : "a[href='/organizations/1518/team']",
+        "configurationLink" : "a[href='/organizations/1518/settings']"
+    },
+
+    "cyBoardSidebar" : {
+        "productBacklogLink" : "a[href='/boards/952']",
+        "statsLink" : "a[href='/boards/952/stats']",
+        "historyLink" : "a[href='/boards/952/history']",
+        "labelsLink" : "a[href='/boards/952/labels']",
+        "filesLink" : "a[href='/boards/952/files']",
+        "documentsLink" : "a[href='/boards/952/documents']",
+        "worklogsLink" : "a[href='/boards/952/worklogs']",
+        "teamMenagementLink" : "a[href='/boards/952/team']",
+        "trashLink" : "a[href='/boards/952/trash']",
+        "settingsLink" : "a[href='/boards/952/settings']"
+    }
+    
+}

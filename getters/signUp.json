@@ -1,0 +1,15 @@
+{
+    "emailInput" : "input[type='email']",
+    "passwordInput" : "input[type='password']",
+    "showPasswordEyeBtn" : "button[type='button']",
+    "numberOfUsersInput" : "input[name='number_of_users']",
+    "checkboxT&C" : "span.vs-c-checkbox-check",
+    "submitBtn" : "button[type='submit']",
+    "loginWithGpBtn" : "button.vs-c-btn--gp",
+    "loginWithFbBtn" : "button.vs-c-btn--fb",
+    "loginWithTwBtn" : "button.vs-c-btn--tw",
+    "loginWithRegzenBtn" : "button.vs-c-btn--regzen",
+    "goToLoginLink" : "a[href='/login']",
+    "hitMonthlyTab" : ".vs-c-switch-pricing-plan-list > div:nth-of-type(1)",
+    "hitAnnuallyTab" : ".vs-c-switch-pricing-plan-list > div:nth-of-type(2)"
+}
