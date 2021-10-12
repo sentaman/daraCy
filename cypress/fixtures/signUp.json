@@ -3,7 +3,7 @@
     "passwordInput" : "input[type='password']",
     "showPasswordEyeBtn" : "button[type='button']",
     "numberOfUsersInput" : "input[name='number_of_users']",
-    "checkboxT&C" : "span.vs-c-checkbox-check",
+    "checkboxTermsAndCond" : "span.vs-c-checkbox-check",
     "submitBtn" : "button[type='submit']",
     "loginWithGpBtn" : "button.vs-c-btn--gp",
     "loginWithFbBtn" : "button.vs-c-btn--fb",

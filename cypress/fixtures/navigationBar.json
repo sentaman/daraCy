@@ -9,5 +9,6 @@
     "hitMoreOptions" : "div[class='el-dropdown']",
     "hitShowFilter" : "div[class='vs-c-dropdown-wrapper vs-c-filter']",
     "hitShowNotification" : "div[class='vs-c-dropdown-wrapper vs-c-notification']",
-    "hitHowItWorks" : ".vs-l-project__options > .el-tooltip.vs-c-btn.vs-c-btn--link"
+    "hitHowItWorks" : ".vs-l-project__options > .el-tooltip.vs-c-btn.vs-c-btn--link",
+    "logoutBtn" : "div[class='vs-c-logout']"
 }

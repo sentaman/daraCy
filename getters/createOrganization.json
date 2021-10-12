@@ -1,7 +1,0 @@
-{
-    "organizationNameInput" : "input[name='name']",
-    "xBtnNewOrganizationModal" : "button[name='close-new-board-modal-btn']",
-    "uploadOrganizationLogo" : ".el-upload-dragger",
-    "previousStepBtn" : "button[name='prev_btn']",
-    "createOrganizationBtn" : "button[name='next_btn']"
-}

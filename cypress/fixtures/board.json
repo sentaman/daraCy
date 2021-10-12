@@ -1,0 +1,27 @@
+{
+    "createBoardFlow" : {
+        "organizationDropdown" : "input[placeholder='Select']",
+        "boardTitleInput" : "input[name='name']",
+        "xBtnModal" : "button[name='close-new-board-modal-btn']",
+        "previousStep" : "button[name='prev_btn']",
+        "nextStep" : "button[name='next_btn']",
+        "checkScrumBtn" : "span[name='type_scrum']",
+        "checkKanbanBtn" : "span[name='type_kanban']",
+        "dropdownConfigurationFrom" : "div:nth-of-type(1) > .vs-input-border > .el-select.vs-c-new-board-select > .el-input > .el-input__inner",
+        "dropdownTeamMembersFrom" : "div:nth-of-type(2) > .vs-input-border > .el-select.vs-c-new-board-select > .el-input > .el-input__inner",
+        "uploadBoardLogo" : "a[class='vs-c-btn vs-c-btn--rounded-square vs-u-width--full']"
+    },
+
+    "configureBoard" : {
+        "boardTitleInput" : "input[name='name']",
+        "boardDescriptionInput" : "textarea[name='description']",
+        "updateButton" : "button[class='vs-c-btn vs-c-btn--primary vs-c-btn--spaced vs-u-font-weight-bold vs-c-btn-auth--top-gap']",
+        "deleteBoardButton" : "button[class='vs-c-btn vs-c-btn--warning vs-c-btn--spaced']",
+        "confirmYourActionModal" : {
+            "yesButton" : "button[name='save-btn']",
+            "noButton" : "button[name='cancel-btn']"
+        }
+    },
+    "maxChar" : "asdfghasdfasdfghasdfasdfghasdfasdfghasdfasdfghasdfq"
+    
+}
