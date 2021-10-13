@@ -39,8 +39,8 @@ describe('Create, edit and delete board', () => {
 
     it('Edit Board title and description', () => {
         cy.get(sidebar.boardSidebar.settingsLink).click()
-        cy.get(board.configureBoard.boardTitleInput).clear().type('Clawfinger')
-        cy.get(board.configureBoard.boardDescriptionInput).clear().type('Nobody ever suspects the butterfly')
+        cy.get(board.configureBoard.boardTitleInput).clear().type(data.user.boardName)
+        cy.get(board.configureBoard.boardDescriptionInput).clear().type(data.user.boardDescription)
         cy.get(board.configureBoard.updateButton).click({force : true})
     });
 
@@ -50,7 +50,7 @@ describe('Create, edit and delete board', () => {
     });
 
     it('Add 51 char in the board title input field and submit the form', () => {
-        cy.get(board.configureBoard.boardTitleInput).clear().type(board.maxChar)
+        cy.get(board.configureBoard.boardTitleInput).clear().type(data.user.maxCharBoard)
         cy.get(board.configureBoard.updateButton).click({force : true})
     });
 

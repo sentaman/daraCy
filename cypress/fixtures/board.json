@@ -21,7 +21,5 @@
             "yesButton" : "button[name='save-btn']",
             "noButton" : "button[name='cancel-btn']"
         }
-    },
-    "maxChar" : "asdfghasdfasdfghasdfasdfghasdfasdfghasdfasdfghasdfq"
-    
+    }
 }

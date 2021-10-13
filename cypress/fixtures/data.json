@@ -3,7 +3,14 @@
         "email" : "czdravko13+1@gmail.com",
         "password" : "metallica",
         "invalidEmail" : "czdravko",
-        "invalidPassword" : "mmmmmmmmmm"
-    }
-    
+        "invalidPassword" : "mmmmmmmmmm",
+        "maxCharBoard" : "asdfghasdfasdfghasdfasdfghasdfasdfghasdfasdfghasdfq",
+        "maxCharOrganization" : "1234567891123456789112345678911234567891123456789112345678911234567891123456789112345678911234567891123456789112345678911234567891123456789112345678911234567891123456789112345678911234567891123456789112345678911234567891123456789112345678911234567891123456",
+        "organizationName" : "Offspring",
+        "newOrganizationName" : "Sepultura",
+        "boardName" : "Clawfinger",
+        "boardDescription" : "Nobody ever suspects the butterfly",
+        "invalidNumberOfUsersSignUp" : "11",
+        "correctNumberOfUsersSignUp" : "1"
+    } 
 }

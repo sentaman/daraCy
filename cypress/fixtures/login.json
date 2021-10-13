@@ -9,5 +9,4 @@
    "loginWithTwBtn" : "button.vs-c-btn--tw",
    "loginWithRegzenBtn" : "button.vs-c-btn--regzen",
    "goToSignUpLink" : "a[href='https://cypress-api.vivifyscrum-stage.com/pricing']"
-
 }

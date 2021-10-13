@@ -1,12 +1,11 @@
 /// <reference types="cypress" />
-// const loginPage = require('../fixtures/login.json')
+
 import loginPage from "../fixtures/login.json"
-// const data = require('../fixtures/data.json')
 import data from "../fixtures/data.json"
 import sidebar from "../fixtures/sidebar.json"
 import navigationBar from "../fixtures/navigationBar.json"
 
-describe('first cypress block' , () => {
+describe('Login flow' , () => {
 
     it('visit vivify scrum', () => {
         cy.visit('/login', { timeout: 30000 })
@@ -57,5 +56,4 @@ describe('first cypress block' , () => {
         cy.get(sidebar.accountSidebar.profileLink).click()
         cy.get(navigationBar.logoutBtn).click()
     })
-
 })
