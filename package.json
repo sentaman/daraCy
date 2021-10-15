@@ -1,0 +1,22 @@
+{
+  "name": "daracy",
+  "version": "1.0.0",
+  "description": "A repo",
+  "main": "index.js",
+  "scripts": {
+    "cypress": "./node_modules/.bin/cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sentaman/daraCy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sentaman/daraCy/issues"
+  },
+  "homepage": "https://github.com/sentaman/daraCy#readme",
+  "dependencies": {
+    "cypress": "^8.5.0"
+  }
+}

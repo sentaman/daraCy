@@ -1,0 +1,23 @@
+{
+    "createOrganizationFlow" :{
+        "organizationNameInput" : "input[name='name']",
+        "xBtnNewOrganizationModal" : "button[name='close-new-board-modal-btn']",
+        "uploadOrganizationLogo" : ".el-upload-dragger",
+        "previousStepBtn" : "button[name='prev_btn']",
+        "createOrganizationBtn" : "button[name='next_btn']",
+        "xButtonOnBoardsModal" : ".vs-c-modal__body > .el-button > .el-icon-close",
+        "cancelButtonAccountDetailsModal" : ".vs-c-btn--danger"
+    },
+
+    "configuration" : {
+        "deleteOrganizationButton" : "button[class='vs-c-btn vs-c-btn--warning vs-c-btn--spaced']",
+        "organizationNameInput" : "input[name='name']",
+        "updateOrganizationNameButton" : "div[class='vs-c-settings-section-form vs-c-material-input'] button[type='submit']",
+        "confirmYourActionModal" : {
+            "passwordInput" : "input[type='password']",
+            "yesButton" : "button[name='save-btn']",
+            "noButton" : "button[name='cancel-btn']",
+            "xButton" : "button[name='close-confirmation-modal-btn']"
+        }
+    }
+}
