@@ -9,7 +9,10 @@
         "checkKanbanBtn" : "span[name='type_kanban']",
         "dropdownConfigurationFrom" : "div:nth-of-type(1) > .vs-input-border > .el-select.vs-c-new-board-select > .el-input > .el-input__inner",
         "dropdownTeamMembersFrom" : "div:nth-of-type(2) > .vs-input-border > .el-select.vs-c-new-board-select > .el-input > .el-input__inner",
-        "uploadBoardLogo" : "a[class='vs-c-btn vs-c-btn--rounded-square vs-u-width--full']"
+        "uploadBoardLogo" : "a[class='vs-c-btn vs-c-btn--rounded-square vs-u-width--full']",
+        "boardModalOkButton" : ".vs-c-modal--features-button > .vs-c-btn",
+        "boardModalTitle" : ".vs-c-modal__header",
+        "newBoardOrganizationDropdown" : ".el-input__inner"
     },
 
     "configureBoard" : {
@@ -17,6 +20,8 @@
         "boardDescriptionInput" : "textarea[name='description']",
         "updateButton" : "button[class='vs-c-btn vs-c-btn--primary vs-c-btn--spaced vs-u-font-weight-bold vs-c-btn-auth--top-gap']",
         "deleteBoardButton" : "button[class='vs-c-btn vs-c-btn--warning vs-c-btn--spaced']",
+        "boardTitleErrorMessage" : ":nth-child(1) > .vs-c-form-item__error-wrapper > .el-form-item__error",
+        "boardTitleMaxCharErrorMessage" : ":nth-child(1) > .vs-c-form-item__error-wrapper > .el-form-item__error",
         "confirmYourActionModal" : {
             "yesButton" : "button[name='save-btn']",
             "noButton" : "button[name='cancel-btn']"

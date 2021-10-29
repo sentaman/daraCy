@@ -1,4 +1,5 @@
 {
+   "loginModal" : ".vs-c-auth-modal__body",
    "emailInput" : "input[type='email']", 
    "passwordInput" : "input[type='password']",
    "loginSubmitBtn" : "button[type='submit']",

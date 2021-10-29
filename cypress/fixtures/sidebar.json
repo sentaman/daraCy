@@ -10,7 +10,8 @@
         "hitBoard" : "[effect='dark'] > :nth-child(1) > .vs-c-list__btn",
         "hitAddNewBoardInMyOrganization" : "div:nth-of-type(20)  .vs-c-list span",
         "hitStarCyBoard" : "a[href='/boards/952'] > div > svg.vs-c-icon",
-        "avatarIcon" : "img[class='vs-u-img--round vs-c-user-avatar']"
+        "avatarIcon" : "img[class='vs-u-img--round vs-c-user-avatar']",
+        "rhcpBoardLink" : ".vs-c-list__btn > :nth-child(3)"
     },
 
     "myOrganizationSidebar": {
@@ -34,7 +35,7 @@
         "worklogsLink" : "a[href='/boards/952/worklogs']",
         "teamMenagementLink" : "a[href='/boards/952/team']",
         "trashLink" : "a[href='/boards/952/trash']",
-        "settingsLink" : ":nth-child(10) > span > div > .vs-c-site-logo"
+        "settingsLink" : "[data-cy=board-configuration] > span > div > .vs-c-site-logo"
     },
 
     "accountSidebar" : {
