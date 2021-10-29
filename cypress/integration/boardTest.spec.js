@@ -31,7 +31,7 @@ describe('Create, edit and delete board', () => {
         })
     })
     
-    it.only('Open New Board modal', () => {
+    it('Open New Board modal', () => {
         cy.get(sidebar.mainSidebar.hitAddNew).click()
         cy.get(sidebar.mainSidebar.hitAddBoard).click()
 
@@ -43,7 +43,7 @@ describe('Create, edit and delete board', () => {
         
     });
 
-    it.only('Add board title and move on to the Board Type modal', () =>  {
+    it('Add board title and move on to the Board Type modal', () =>  {
         cy.get(board.createBoardFlow.boardTitleInput).type('RHCP')
         cy.get(board.createBoardFlow.boardTitleInput).should('have.value', 'RHCP')
         cy
@@ -54,7 +54,7 @@ describe('Create, edit and delete board', () => {
         cy.get(board.createBoardFlow.nextStep).click()
     });
     
-    it.only('Check Scrum on the Board Type modal and proceed to the Board Logo modal', () => {
+    it('Check Scrum on the Board Type modal and proceed to the Board Logo modal', () => {
         cy.get(board.createBoardFlow.boardModalTitle).should(($mik) => {
             expect($mik).to.contain('Board Type')
         })
@@ -66,7 +66,7 @@ describe('Create, edit and delete board', () => {
         cy.get(board.createBoardFlow.nextStep).click()
     });
 
-    it.only('Upload boarder logo (optionally) and proceed to the last modal', () => {
+    it('Upload boarder logo (optionally) and proceed to the last modal', () => {
         cy
             .get(board.createBoardFlow.boardModalTitle)
             .should('be.visible')
@@ -76,7 +76,7 @@ describe('Create, edit and delete board', () => {
         cy.get(board.createBoardFlow.nextStep).click()
     });
 
-    it.only('Create a Board', () => {
+    it('Create a Board', () => {
         cy
             .get(board.createBoardFlow.boardModalTitle)
             .should('be.visible')
@@ -85,7 +85,7 @@ describe('Create, edit and delete board', () => {
         cy.get(board.createBoardFlow.nextStep).click({force : true})
     });
 
-    it.only('Edit Board title and add description', () => {
+    it('Edit Board title and add description', () => {
         cy.get(sidebar.mainSidebar.rhcpBoardLink).should('contain', 'RHCP')
         cy.get(sidebar.boardSidebar.settingsLink).click()
         cy.get(board.configureBoard.boardTitleInput).should('have.value', 'RHCP')
@@ -96,7 +96,7 @@ describe('Create, edit and delete board', () => {
         cy.get(board.configureBoard.updateButton).click({force : true})
     });
 
-    it.only('Clear board title input field and get error message', () => {
+    it('Clear board title input field and get error message', () => {
         cy.get(board.configureBoard.boardTitleInput).clear()
         cy
             .get(board.configureBoard.boardTitleErrorMessage)
@@ -104,7 +104,7 @@ describe('Create, edit and delete board', () => {
             .and('contain', 'The board title field is required')
     });
 
-    it.only('Add 51 char in the board title input field and submit the form', () => {
+    it('Add 51 char in the board title input field and submit the form', () => {
         cy.get(board.configureBoard.boardTitleInput).clear().type(data.user.maxCharBoard)
         cy
             .get(board.configureBoard.boardTitleMaxCharErrorMessage)
@@ -112,7 +112,7 @@ describe('Create, edit and delete board', () => {
             .and('contain', 'The board title field may not be greater than 50 characters')
     });
 
-    it.only('Delete created board', () => {
+    it('Delete created board', () => {
         cy.get(board.configureBoard.deleteBoardButton).click()
         cy
         .get(board.createBoardFlow.boardModalTitle)
