@@ -1,6 +1,6 @@
 {
     "user" : {
-        "email" : "czdravko13+1@gmail.com",
+        "email" : "czdravko13@gmail.com",
         "password" : "metallica",
         "invalidEmail" : "czdravko",
         "invalidPassword" : "mmmmmmmmmm",
@@ -8,9 +8,11 @@
         "maxCharOrganization" : "1234567891123456789112345678911234567891123456789112345678911234567891123456789112345678911234567891123456789112345678911234567891123456789112345678911234567891123456789112345678911234567891123456789112345678911234567891123456789112345678911234567891123456",
         "organizationName" : "Offspring",
         "newOrganizationName" : "Sepultura",
+        "firstBoardName" : "RHCP",
         "boardName" : "Clawfinger",
         "boardDescription" : "Nobody ever suspects the butterfly",
         "invalidNumberOfUsersSignUp" : "11",
-        "correctNumberOfUsersSignUp" : "1"
+        "correctNumberOfUsersSignUp" : "1",
+        "boardTitleMaxCharErrorMessage" : "The board title field may not be greater than 50 characters"
     } 
 }

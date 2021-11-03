@@ -1,7 +1,8 @@
 /// <reference types="cypress" />
 
-import signUp from "../fixtures/signUp.json"
 import data from "../fixtures/data.json"
+import signUpModule from "../models/signUpModule"
+
 
 describe('Registration flow', () => {
     
@@ -10,58 +11,57 @@ describe('Registration flow', () => {
     });
 
     it("submit the form without credentials and unchecked T&C", () => {
-        cy.get(signUp.checkboxTermsAndCond).click()
-        cy.get(signUp.submitBtn).click()
+        signUpModule.checkboxTermsAndCond.click()
+        signUpModule.submitBtn.click()
     });
 
     it("submit the form with invalid email only", () => {
-        cy.get(signUp.emailInput).clear().type(data.user.invalidEmail)
-        cy.get(signUp.checkboxTermsAndCond).click()
-        cy.get(signUp.passwordInput).clear()
-        cy.get(signUp.numberOfUsersInput).clear()
-        cy.get(signUp.submitBtn).click()
+        signUpModule.emailInput.clear().type(data.user.invalidEmail)
+        signUpModule.checkboxTermsAndCond.click()
+        signUpModule.passwordInput.clear()
+        signUpModule.numberOfUsersInput.clear
+        signUpModule.submitBtn.click()
     });
 
     it("submit the form with invalid email and invalid password", () => {
-        cy.get(signUp.emailInput).clear().type(data.user.invalidEmail)
-        cy.get(signUp.passwordInput).clear().type(data.user.invalidPassword)
-        cy.get(signUp.numberOfUsersInput).clear()
-        cy.get(signUp.submitBtn).click()
+        signUpModule.emailInput.clear().type(data.user.invalidEmail)
+        signUpModule.passwordInput.clear().type(data.user.invalidPassword)
+        signUpModule.numberOfUsersInput.clear()
+        signUpModule.submitBtn.click()
     });
 
     it("submit the form with invalid credentials (email, password, number of users and unchecked T&C) ", () => {
-        cy.get(signUp.emailInput).clear().type(data.user.invalidEmail)
-        cy.get(signUp.passwordInput).clear().type(data.user.invalidPassword)
-        cy.get(signUp.numberOfUsersInput).clear().type('11')
-        cy.get(signUp.checkboxTermsAndCond).click()
-        cy.get(signUp.submitBtn).click()
+        signUpModule.emailInput.clear().type(data.user.invalidEmail)
+        signUpModule.passwordInput.clear().type(data.user.invalidPassword)
+        signUpModule.numberOfUsersInput.clear().type(data.user.invalidNumberOfUsersSignUp)
+        signUpModule.checkboxTermsAndCond.click()
+        signUpModule.submitBtn.click()
     });
 
     it("submit the form with valid email, invalid password and invalid number of users and unchecked T&C ", () => {
-        cy.get(signUp.emailInput).clear().type(data.user.email)
-        cy.get(signUp.passwordInput).clear().type(data.user.invalidPassword)
-        cy.get(signUp.numberOfUsersInput).clear().type(data.user.invalidNumberOfUsersSignUp)
-        cy.get(signUp.submitBtn).click()
+        signUpModule.emailInput.clear().type(data.user.email)
+        signUpModule.passwordInput.clear().type(data.user.invalidPassword)
+        signUpModule.numberOfUsersInput.clear().type(data.user.invalidNumberOfUsersSignUp)
+        signUpModule.submitBtn.click()
     });
 
     it("submit the form with valid email, valid password and invalid number of users and unchecked T&C", () => {
-        cy.get(signUp.emailInput).clear().type(data.user.email)
-        cy.get(signUp.passwordInput).clear().type(data.user.password)
-        cy.get(signUp.numberOfUsersInput).clear().type(data.user.invalidNumberOfUsersSignUp)
-        cy.get(signUp.submitBtn).click()
+        signUpModule.emailInput.clear().type(data.user.email)
+        signUpModule.passwordInput.clear().type(data.user.password)
+        signUpModule.numberOfUsersInput.clear().type(data.user.invalidNumberOfUsersSignUp)
+        signUpModule.submitBtn.click()
+
     });
 
     it("submit the form with valid email, valid password and valid number of users and unchecked T&C", () => {
-        cy.get(signUp.emailInput).clear().type(data.user.email)
-        cy.get(signUp.passwordInput).clear().type(data.user.password)
-        cy.get(signUp.numberOfUsersInput).clear().type('1')
-        cy.get(signUp.checkboxTermsAndCond).click()
+        signUpModule.emailInput.clear().type(data.user.email)
+        signUpModule.passwordInput.clear().type(data.user.password)
+        signUpModule.numberOfUsersInput.clear().type(data.user.correctNumberOfUsersSignUp)
+        signUpModule.submitBtn.click()
+        signUpModule.checkboxTermsAndCond.click()
     });
 
-    // it("successfully signUp a user", () => {
-    //     cy.get(signUp.emailInput).clear().type(data.user.email)
-    //     cy.get(signUp.passwordInput).clear().type(data.user.password)
-    //     cy.get(signUp.numberOfUsersInput).clear().type('1')
-    //     cy.get(signUp.submitBtn).click()
-    // });
+    it("successfully signUp a user", () => {
+        signUpModule.signUp({})
+    });
 });
