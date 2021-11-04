@@ -47,6 +47,14 @@ module.exports = {
         return cy.get("a[href='https://cypress-api.vivifyscrum-stage.com/pricing']")
     },
 
+    get loginErrorEmailMandatory() {
+        return cy.get(":nth-child(1) > .vs-c-form-item__error-wrapper > .el-form-item__error")
+    },
+
+    get loginErrorPasswordMandatory() {
+        return cy.get(":nth-child(2) > .vs-c-form-item__error-wrapper > .el-form-item__error")
+    },
+
     login({ email = data.user.email, password = data.user.password }) {
         if (email == "") {                                                  
           this.passwordInput.should("be.visible").clear().type(password);

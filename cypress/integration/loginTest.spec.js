@@ -5,11 +5,11 @@ import authModule from "../models/authModule"
 
 describe('Login flow' , () => {
 
-    it('visit login page', () => {
+    it.only('visit login page', () => {
         cy.visit('/login', { timeout: 30000 })
     })
 
-    it('submit logIn form without credentials', () => {
+    it.only('submit logIn form without credentials', () => {
         authModule.loginSubmitBtn.click()
     });
 
@@ -45,6 +45,7 @@ describe('Login flow' , () => {
 
     it('successfully login user', () => {
         authModule.login({});
+
     });
 
     it('logout user', () => {

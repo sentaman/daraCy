@@ -22,7 +22,7 @@ module.exports = {
     },
 
     get submitBtn(){
-        return cy.get("button[type='submit']")
+        return cy.get("[data-cy=sign-up-submit-button]")
     },
 
     get loginWithGpBtn() {
@@ -53,14 +53,62 @@ module.exports = {
         return cy.get(".vs-c-switch-pricing-plan-list > div:nth-of-type(2)")
     },
 
-    signUp({ email = data.user.email, password = data.user.password, numbOfUsers = data.user.correctNumberOfUsersSignUp} ) {
-        cy.intercept('POST','**/api/v2/register').as('signUp')
-        this.emailInput.should('be.visible').clear().type(email)
-        this.passwordInput.should('be.visible').clear().type(password)
-        this.numberOfUsersInput.should('be.visible').clear().type(numbOfUsers)
-        this.submitBtn.click()
-        cy.wait('@signUp').then((intercept) => {
-            expect(intercept.response.statusCode).to.eq(200)
+    get errorEmail() {
+        return cy.get(":nth-child(1) > .vs-c-form-item__error-wrapper > .el-form-item__error")
+    },
+
+    get errorPassword() {
+        return cy.get(":nth-child(2) > .vs-c-form-item__error-wrapper > .el-form-item__error")
+    },
+
+    get errorNumbUsers() {
+        return cy.get(":nth-child(3) > .vs-c-form-item__error-wrapper > .el-form-item__error")
+    },
+
+    get errorTermsCondition() {
+        return cy.get(":nth-child(4) > .vs-c-form-item__error-wrapper > .el-form-item__error")
+    },
+
+    signUp(email, password, numberOfUsers) {
+        if(email == data.user.emptyString && password == data.user.emptyString && numberOfUsers == data.user.emptyString) {
+            this.checkboxTermsAndCond.click()
+            this.submitBtn.click()
+        } else if(email == data.user.invalidEmail && password == data.user.emptyString && numberOfUsers == data.user.emptyString) {
+            this.emailInput.clear().type(email)
+            this.checkboxTermsAndCond.click()
+            this.submitBtn.click()
+        } else if(email == data.user.invalidEmail && password == data.user.invalidPassword && numberOfUsers == data.user.emptyString){
+            this.emailInput.clear().type(email)
+            this.passwordInput.clear().type(password)
+            this.submitBtn.click()
+        } else if(email == data.user.invalidEmail && password == data.user.invalidPassword && numberOfUsers == data.user.invalidNumberOfUsersSignUp) {
+            this.emailInput.clear().type(email)
+            this.passwordInput.clear().type(password)
+            this.numberOfUsersInput.clear().type(numberOfUsers)
+            this.checkboxTermsAndCond.click()
+            this.submitBtn.click()
+        } else if(email == data.user.email && password == data.user.password && numberOfUsers == data.user.invalidNumberOfUsersSignUp) {
+            this.emailInput.clear().type(email)
+            this.passwordInput.clear().type(password)
+            this.numberOfUsersInput.clear().type(numberOfUsers)
+            this.checkboxTermsAndCond.click()
+            this.submitBtn.click()
+        } else if(email == data.user.email && data.user.invalidPassword && numberOfUsers == data.user.invalidNumberOfUsersSignUp) {
+            this.emailInput.clear().type(email)
+            this.passwordInput.clear().type(password)
+            this.numberOfUsersInput.clear().type(numberOfUsers)
+            this.checkboxTermsAndCond.click()
+            this.submitBtn.click()
+        } 
+        else if(email == data.user.newEmail, password == data.user.password, numberOfUsers == data.user.correctNumberOfUsersSignUp) {
+            cy.intercept('POST','**/api/v2/register').as('signUp')
+            this.emailInput.type(email)
+            this.passwordInput.type(password)
+            this.numberOfUsersInput.type(numberOfUsers)
+            this.submitBtn.click()
+            cy.wait('@signUp').then((intercept) => {
+                expect(intercept.response.statusCode).to.eq(200)
         })
+        }
     }
 }

@@ -1,9 +1,10 @@
 {
     "user" : {
         "email" : "czdravko13@gmail.com",
+        "newEmail" : "czdravko12+rts1231@gmail.com",
         "password" : "metallica",
         "invalidEmail" : "czdravko",
-        "invalidPassword" : "mmmmmmmmmm",
+        "invalidPassword" : "1a2b",
         "maxCharBoard" : "asdfghasdfasdfghasdfasdfghasdfasdfghasdfasdfghasdfq",
         "maxCharOrganization" : "1234567891123456789112345678911234567891123456789112345678911234567891123456789112345678911234567891123456789112345678911234567891123456789112345678911234567891123456789112345678911234567891123456789112345678911234567891123456789112345678911234567891123456",
         "organizationName" : "Offspring",
@@ -13,6 +14,17 @@
         "boardDescription" : "Nobody ever suspects the butterfly",
         "invalidNumberOfUsersSignUp" : "11",
         "correctNumberOfUsersSignUp" : "1",
-        "boardTitleMaxCharErrorMessage" : "The board title field may not be greater than 50 characters"
-    } 
+        "boardTitleMaxCharErrorMessage" : "The board title field may not be greater than 50 characters",
+        "emptyString" : ""
+    },
+    
+    "signupErrorMessages" : {
+        "emailMandatory" : "The email field must be a valid email",
+        "passwordMandatory" : "The password field is required",
+        "numbOfUsersMandatory" : "The number of users field is required",
+        "termsConditionMandatory" : "The agree to terms and privacy policy field is required",
+        "validEmail" : "The email field must be a valid email",
+        "passwordMinChar" : "The password field must be at least 5 characters",
+        "expectedUsersNumber" : "The number of users must be between 1 and 10"
+    }
 }
