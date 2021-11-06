@@ -16,7 +16,9 @@
     "url": "https://github.com/sentaman/daraCy/issues"
   },
   "homepage": "https://github.com/sentaman/daraCy#readme",
-  "dependencies": {},
+  "dependencies": {
+    "faker": "^5.5.3"
+  },
   "devDependencies": {
     "cypress": "^8.7.0"
   }

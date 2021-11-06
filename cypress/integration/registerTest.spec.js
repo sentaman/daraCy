@@ -1,67 +1,57 @@
 /// <reference types="cypress" />
 
-import signUp from "../fixtures/signUp.json"
 import data from "../fixtures/data.json"
+import signUpModule from "../models/signUpModule"
 
 describe('Registration flow', () => {
     
-    it('navigate to signUp page', () => {
+    beforeEach(() => {
         cy.visit("/sign-up", { timeout : 30000 });
     });
 
     it("submit the form without credentials and unchecked T&C", () => {
-        cy.get(signUp.checkboxTermsAndCond).click()
-        cy.get(signUp.submitBtn).click()
+        signUpModule.signUp(data.user.emptyString, data.user.emptyString, data.user.emptyString)
+        signUpModule.errorEmail.should('contain', data.signupErrorMessages.emailMandatory)
+        signUpModule.errorPassword.should('contain', data.signupErrorMessages.passwordMandatory)
+        signUpModule.errorNumbUsers.should('contain', data.signupErrorMessages.numbOfUsersMandatory)
+        signUpModule.errorTermsCondition.should('contain', data.signupErrorMessages.termsConditionMandatory)
     });
 
     it("submit the form with invalid email only", () => {
-        cy.get(signUp.emailInput).clear().type(data.user.invalidEmail)
-        cy.get(signUp.checkboxTermsAndCond).click()
-        cy.get(signUp.passwordInput).clear()
-        cy.get(signUp.numberOfUsersInput).clear()
-        cy.get(signUp.submitBtn).click()
+        signUpModule.signUp(data.user.invalidEmail, data.user.emptyString, data.user.emptyString)
+        signUpModule.errorEmail.should('contain', data.signupErrorMessages.validEmail)
+        signUpModule.errorPassword.should('contain', data.signupErrorMessages.passwordMandatory)
+        signUpModule.errorNumbUsers.should('contain', data.signupErrorMessages.numbOfUsersMandatory)
     });
 
     it("submit the form with invalid email and invalid password", () => {
-        cy.get(signUp.emailInput).clear().type(data.user.invalidEmail)
-        cy.get(signUp.passwordInput).clear().type(data.user.invalidPassword)
-        cy.get(signUp.numberOfUsersInput).clear()
-        cy.get(signUp.submitBtn).click()
+        signUpModule.signUp(data.user.invalidEmail, data.user.invalidPassword, data.user.emptyString)
+        signUpModule.errorEmail.should('contain', data.signupErrorMessages.validEmail)
+        signUpModule.errorPassword.should('contain', data.signupErrorMessages.passwordMinChar)
+        signUpModule.errorNumbUsers.should('contain', data.signupErrorMessages.numbOfUsersMandatory)
     });
 
     it("submit the form with invalid credentials (email, password, number of users and unchecked T&C) ", () => {
-        cy.get(signUp.emailInput).clear().type(data.user.invalidEmail)
-        cy.get(signUp.passwordInput).clear().type(data.user.invalidPassword)
-        cy.get(signUp.numberOfUsersInput).clear().type('11')
-        cy.get(signUp.checkboxTermsAndCond).click()
-        cy.get(signUp.submitBtn).click()
+        signUpModule.signUp(data.user.invalidEmail, data.user.invalidPassword, data.user.invalidNumberOfUsersSignUp)
+        signUpModule.errorEmail.should('contain', data.signupErrorMessages.validEmail)
+        signUpModule.errorPassword.should('contain', data.signupErrorMessages.passwordMinChar)
+        signUpModule.errorNumbUsers.should('contain', data.signupErrorMessages.expectedUsersNumber)
     });
 
     it("submit the form with valid email, invalid password and invalid number of users and unchecked T&C ", () => {
-        cy.get(signUp.emailInput).clear().type(data.user.email)
-        cy.get(signUp.passwordInput).clear().type(data.user.invalidPassword)
-        cy.get(signUp.numberOfUsersInput).clear().type(data.user.invalidNumberOfUsersSignUp)
-        cy.get(signUp.submitBtn).click()
+        signUpModule.signUp(data.user.email, data.user.invalidPassword, data.user.invalidNumberOfUsersSignUp)
+        signUpModule.errorPassword.should('contain', data.signupErrorMessages.passwordMinChar)
+        signUpModule.errorNumbUsers.should('contain', data.signupErrorMessages.expectedUsersNumber)
+        signUpModule.errorTermsCondition.should('contain', data.signupErrorMessages.termsConditionMandatory)
     });
 
     it("submit the form with valid email, valid password and invalid number of users and unchecked T&C", () => {
-        cy.get(signUp.emailInput).clear().type(data.user.email)
-        cy.get(signUp.passwordInput).clear().type(data.user.password)
-        cy.get(signUp.numberOfUsersInput).clear().type(data.user.invalidNumberOfUsersSignUp)
-        cy.get(signUp.submitBtn).click()
+        signUpModule.signUp(data.user.email, data.user.password, data.user.invalidNumberOfUsersSignUp)
+        signUpModule.errorNumbUsers.should('contain', data.signupErrorMessages.expectedUsersNumber)
+        signUpModule.errorTermsCondition.should('contain', data.signupErrorMessages.termsConditionMandatory)
     });
 
-    it("submit the form with valid email, valid password and valid number of users and unchecked T&C", () => {
-        cy.get(signUp.emailInput).clear().type(data.user.email)
-        cy.get(signUp.passwordInput).clear().type(data.user.password)
-        cy.get(signUp.numberOfUsersInput).clear().type('1')
-        cy.get(signUp.checkboxTermsAndCond).click()
+    it("successfully signUp a user", () => {
+        signUpModule.signUp(data.user.newEmail, data.user.password, data.user.correctNumberOfUsersSignUp)
     });
-
-    // it("successfully signUp a user", () => {
-    //     cy.get(signUp.emailInput).clear().type(data.user.email)
-    //     cy.get(signUp.passwordInput).clear().type(data.user.password)
-    //     cy.get(signUp.numberOfUsersInput).clear().type('1')
-    //     cy.get(signUp.submitBtn).click()
-    // });
 });

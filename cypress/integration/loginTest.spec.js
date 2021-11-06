@@ -1,59 +1,54 @@
 /// <reference types="cypress" />
 
-import loginPage from "../fixtures/login.json"
 import data from "../fixtures/data.json"
-import sidebar from "../fixtures/sidebar.json"
-import navigationBar from "../fixtures/navigationBar.json"
+import authModule from "../models/authModule"
 
 describe('Login flow' , () => {
 
-    it('visit vivify scrum', () => {
+    it.only('visit login page', () => {
         cy.visit('/login', { timeout: 30000 })
-    });
+    })
 
-    it('submit logIn form without credentials', () => {
-        cy.get(loginPage.loginSubmitBtn).click()
+    it.only('submit logIn form without credentials', () => {
+        authModule.loginSubmitBtn.click()
     });
 
     it('submit login form with valid email only', () => {
-        cy.get(loginPage.emailInput).clear().type(data.user.email)
-        cy.get(loginPage.passwordInput).clear()
-        cy.get(loginPage.loginSubmitBtn).click()
+        authModule.emailInput.clear().type(data.user.email)
+        authModule.passwordInput.clear()
+        authModule.loginSubmitBtn.click()
     });
 
     it('submit login form with valid password only', () => {
-        cy.get(loginPage.emailInput).clear()
-        cy.get(loginPage.emailInput).clear().type(data.user.password)
-        cy.get(loginPage.loginSubmitBtn).click()
+        authModule.emailInput.clear()
+        authModule.passwordInput.clear().type(data.user.password)
+        authModule.loginSubmitBtn.click()
     });
 
     it('submit login form with invalid email and invalid password', () => {
-        cy.get(loginPage.emailInput).type(data.user.invalidEmail)
-        cy.get(loginPage.passwordInput).type(data.user.invalidPassword)
-        cy.get(loginPage.loginSubmitBtn).click()
+        authModule.emailInput.clear().type(data.user.invalidEmail)
+        authModule.passwordInput.clear().type(data.user.invalidPassword)
+        authModule.loginSubmitBtn.click()
     });
 
     it('submit login form with invalid email and valid password', () => {
-        cy.get(loginPage.emailInput).clear().type(data.user.invalidEmail)
-        cy.get(loginPage.passwordInput).clear().type(data.user.password)
-        cy.get(loginPage.loginSubmitBtn).click()
+        authModule.emailInput.clear().type(data.user.invalidEmail)
+        authModule.passwordInput.clear().type(data.user.password)
+        authModule.loginSubmitBtn.click()
     });
 
     it('submit login form with valid email and invalid password', () => {
-        cy.get(loginPage.emailInput).clear().type(data.user.email)
-        cy.get(loginPage.passwordInput).clear().type(data.user.invalidPassword)
-        cy.get(loginPage.loginSubmitBtn).click()
+        authModule.emailInput.clear().type(data.user.email)
+        authModule.passwordInput.clear().type(data.user.invalidPassword)
+        authModule.loginSubmitBtn.click()
     });
 
     it('successfully login user', () => {
-        cy.get(loginPage.emailInput).clear().type(data.user.email)
-        cy.get(loginPage.passwordInput).clear().type(data.user.password)
-        cy.get(loginPage.loginSubmitBtn).click()
+        authModule.login({});
+
     });
 
-    it('logOut user', () => {
-        cy.get(sidebar.mainSidebar.avatarIcon).click()
-        cy.get(sidebar.accountSidebar.profileLink).click()
-        cy.get(navigationBar.logoutBtn).click()
+    it('logout user', () => {
+        authModule.logOut();
     })
 })
