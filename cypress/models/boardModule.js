@@ -1,3 +1,6 @@
+import data from "../fixtures/data.json"
+import sidebarModule from "../models/sidebarModule"
+
 module.exports = {
     get boardModalTitle() {
         return cy.get(".vs-c-modal__header")
@@ -49,5 +52,25 @@ module.exports = {
 
     get boardModalOkButton() {
         return cy.get(".vs-c-modal--features-button > .vs-c-btn")
+    },
+
+    get boardConfigurationBtn() {
+        return cy.get("[data-cy=board-configuration] > span > div > .vs-c-site-logo")
+    },
+
+    createBoard(modalTitle) {
+        cy.createBoard(modalTitle)
+    },
+
+    deleteBoard() {
+        cy.deleteBoard()
+    },
+
+    openNewBoardModal() {
+        cy.openNewBoardModal()
+    },
+
+    nextStepBoard() {
+        this.nextStep.click()
     }
 }

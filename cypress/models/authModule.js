@@ -55,33 +55,19 @@ module.exports = {
         return cy.get(":nth-child(2) > .vs-c-form-item__error-wrapper > .el-form-item__error")
     },
 
-    login({ email = data.user.email, password = data.user.password }) {
-        if (email == "") {                                                  
-          this.passwordInput.should("be.visible").clear().type(password);
-          this.loginSubmitBtn.click();
-        } else if (password == "") {
-          this.emailInput.should("be.visible").clear().type(email);
-          this.loginSubmitBtn.click();
-        } else {
-          cy.intercept("POST", "**/api/v2/login").as("login");
-          this.emailInput.should("be.visible").clear().type(email);
-          this.passwordInput.should("be.visible").clear().type(password);
-          this.loginSubmitBtn.click();
-          if (email == data.user.email && password == data.user.password) {
-            cy.wait("@login").then((intercept) => {
-              expect(intercept.response.statusCode).to.eq(200);
-            });
-          }
-        }
-      },
+    get emailPasswordIncorect() {
+        return cy.get(":nth-child(2) > .vs-c-form-item__error-wrapper > .el-form-item__error")
+    },
 
-    logOut() {
-        cy.intercept('POST', '**/api/v2/logout').as("logOut")
-        sidebarModule.avatarIcon.should('be.visible').click()
-        sidebarModule.profileLink.should('be.visible').click()
-        navigationBarModule.logoutBtn.click()
-        cy.wait("@logOut").then((intercept) => {
-            expect(intercept.response.statusCode).to.eq(201)
-        })
+    get minCharPasswordError() {
+        return cy.get(":nth-child(2) > .vs-c-form-item__error-wrapper > .el-form-item__error")
+    },
+
+    login(email, password) {
+        cy.login(email, password)
+    },
+
+    logout() {
+        cy.logout()
     }
 }

@@ -21,5 +21,9 @@ module.exports = {
 
     get settingsLink() {
         return cy.get("[data-cy=board-configuration] > span > div > .vs-c-site-logo")
+    },
+
+    get wholeSidebar() {
+        return cy.get(".vb-content")
     }
 }

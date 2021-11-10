@@ -11,24 +11,19 @@ describe('Create, edit and delete board', () => {
     before(() => {
         cy.visit('/login')
         authModule.loginModal.should('be.visible').and('contain', 'Log in with your existing account')
-        authModule.login({})
+        authModule.login(data.user.email, data.user.password)
 
     })
 
     after(() => {
-        sidebarModule.avatarIcon.click()
-        sidebarModule.profileLink.click({force : true})
-        navigationBarModule.logoutBtn.click()
-
+        authModule.logout()
         authModule.loginModal.should(($mik) => {
             expect($mik).to.contain('Log in with your existing account')
         })
     })
     
     it('Open New Board modal', () => {
-        sidebarModule.hitAddNew.click()
-        sidebarModule.hitAddBoard.click()
-
+        boardModule.openNewBoardModal()
         boardModule.boardModalTitle
             .should('be.visible')
             .and('contain', 'New Board')
@@ -37,12 +32,12 @@ describe('Create, edit and delete board', () => {
     });
 
     it('Add board title and move on to the Board Type modal', () =>  {
-        boardModule.boardTitleInput.type(data.user.firstBoardName)
+        boardModule.createBoard(data.boardModalTitle.firstStepTitle)
         boardModule.boardTitleInput.should('have.value', data.user.firstBoardName)
         boardModule.newBoardOrganizationDropdown
             .should('have.length', '1')
             .and('have.value', 'Offspring')
-        boardModule.nextStep.click()
+        boardModule.nextStepBoard()
     });
     
     it('Check Scrum on the Board Type modal and proceed to the Board Logo modal', () => {
@@ -52,8 +47,8 @@ describe('Create, edit and delete board', () => {
         boardModule.checkScrumBtn.should('not.be.checked')
         boardModule.checkKanbanBtn.should('not.be.checked')
         boardModule.nextStep.should('be.disabled')
-        boardModule.checkScrumBtn.click()
-        boardModule.nextStep.click()
+        boardModule.createBoard(data.boardModalTitle.secondStepTitle)
+        boardModule.nextStepBoard()
     });
 
     it('Upload boarder logo (optionally) and proceed to the last modal', () => {
@@ -62,7 +57,7 @@ describe('Create, edit and delete board', () => {
             .and('contain', 'Board Logo')
             .and('have.css', 'background-color', 'rgb(78, 174, 147)')
         boardModule.nextStep.should('be.enabled')
-        boardModule.nextStep.click()
+        boardModule.createBoard(data.boardModalTitle.thirdStepTitle)
     });
 
     it('Create a Board', () => {
@@ -70,9 +65,9 @@ describe('Create, edit and delete board', () => {
             .should('be.visible')
             .and('contain', 'RHCP')
             .and('have.css', 'background-color', 'rgb(78, 174, 147)')
-        boardModule.nextStep.click({force : true})
+        boardModule.createBoard(data.user.firstBoardName)
     });
-
+// ovde sam stao
     it('Edit Board title and add description', () => {
         sidebarModule.rhcpBoardLink.should('contain', data.user.firstBoardName)
         sidebarModule.settingsLink.click()
@@ -99,11 +94,7 @@ describe('Create, edit and delete board', () => {
     });
 
     it('Delete created board', () => {
-        boardModule.deleteBoardButton.click()
-        boardModule.boardModalTitle
-        .should('be.visible')
-        .and('contain', 'Confirm Your Action')
-        boardModule.yesButton.should('be.enabled').click()
-        boardModule.boardModalOkButton.click()
+        boardModule.deleteBoard()
+        sidebarModule.wholeSidebar.should('not.include.text', data.user.boardName)
     });
 });
