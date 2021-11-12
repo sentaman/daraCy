@@ -5,50 +5,47 @@ import authModule from "../models/authModule"
 
 describe('Login flow' , () => {
 
-    it.only('visit login page', () => {
+    beforeEach(() => {
         cy.visit('/login', { timeout: 30000 })
     })
 
-    it.only('submit logIn form without credentials', () => {
-        authModule.loginSubmitBtn.click()
+    after(() => {
+        authModule.logout();
+    })
+
+    it('submit logIn form without credentials', () => {
+        authModule.login(data.user.emptyString, data.user.emptyString)
+        authModule.loginErrorEmailMandatory.should('contain', data.loginErrorMessages.emailMandatory)
+        authModule.loginErrorPasswordMandatory.should('contain', data.loginErrorMessages.passwordRequired)
     });
 
     it('submit login form with valid email only', () => {
-        authModule.emailInput.clear().type(data.user.email)
-        authModule.passwordInput.clear()
-        authModule.loginSubmitBtn.click()
+        authModule.login(data.user.email, data.user.emptyString)
+        authModule.loginErrorPasswordMandatory.should('contain', data.loginErrorMessages.passwordRequired)
     });
 
     it('submit login form with valid password only', () => {
-        authModule.emailInput.clear()
-        authModule.passwordInput.clear().type(data.user.password)
-        authModule.loginSubmitBtn.click()
+        authModule.login(data.user.emptyString, data.user.password)
+        authModule.loginErrorEmailMandatory.should('contain', data.loginErrorMessages.emailMandatory)
     });
 
     it('submit login form with invalid email and invalid password', () => {
-        authModule.emailInput.clear().type(data.user.invalidEmail)
-        authModule.passwordInput.clear().type(data.user.invalidPassword)
-        authModule.loginSubmitBtn.click()
+        authModule.login(data.user.invalidEmail, data.user.invalidPassword)
+        authModule.loginErrorEmailMandatory.should('contain', data.loginErrorMessages.emailMandatory)
+        authModule.emailPasswordIncorect.should('contain', data.loginErrorMessages.minCharPasswordError)
     });
 
     it('submit login form with invalid email and valid password', () => {
-        authModule.emailInput.clear().type(data.user.invalidEmail)
-        authModule.passwordInput.clear().type(data.user.password)
-        authModule.loginSubmitBtn.click()
+        authModule.login(data.user.invalidEmail, data.user.password)
+        authModule.loginErrorEmailMandatory.should('contain', data.loginErrorMessages.emailMandatory)
     });
 
     it('submit login form with valid email and invalid password', () => {
-        authModule.emailInput.clear().type(data.user.email)
-        authModule.passwordInput.clear().type(data.user.invalidPassword)
-        authModule.loginSubmitBtn.click()
+        authModule.login(data.user.email, data.user.invalidPassword)
+        authModule.minCharPasswordError.should('contain', data.loginErrorMessages.minCharPasswordError)
     });
 
-    it('successfully login user', () => {
-        authModule.login({});
-
+    it('successfully login user', () => {   
+        authModule.login(data.user.email, data.user.password)
     });
-
-    it('logout user', () => {
-        authModule.logOut();
-    })
 })

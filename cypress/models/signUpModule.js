@@ -70,45 +70,6 @@ module.exports = {
     },
 
     signUp(email, password, numberOfUsers) {
-        if(email == data.user.emptyString && password == data.user.emptyString && numberOfUsers == data.user.emptyString) {
-            this.checkboxTermsAndCond.click()
-            this.submitBtn.click()
-        } else if(email == data.user.invalidEmail && password == data.user.emptyString && numberOfUsers == data.user.emptyString) {
-            this.emailInput.clear().type(email)
-            this.checkboxTermsAndCond.click()
-            this.submitBtn.click()
-        } else if(email == data.user.invalidEmail && password == data.user.invalidPassword && numberOfUsers == data.user.emptyString){
-            this.emailInput.clear().type(email)
-            this.passwordInput.clear().type(password)
-            this.submitBtn.click()
-        } else if(email == data.user.invalidEmail && password == data.user.invalidPassword && numberOfUsers == data.user.invalidNumberOfUsersSignUp) {
-            this.emailInput.clear().type(email)
-            this.passwordInput.clear().type(password)
-            this.numberOfUsersInput.clear().type(numberOfUsers)
-            this.checkboxTermsAndCond.click()
-            this.submitBtn.click()
-        } else if(email == data.user.email && password == data.user.password && numberOfUsers == data.user.invalidNumberOfUsersSignUp) {
-            this.emailInput.clear().type(email)
-            this.passwordInput.clear().type(password)
-            this.numberOfUsersInput.clear().type(numberOfUsers)
-            this.checkboxTermsAndCond.click()
-            this.submitBtn.click()
-        } else if(email == data.user.email && data.user.invalidPassword && numberOfUsers == data.user.invalidNumberOfUsersSignUp) {
-            this.emailInput.clear().type(email)
-            this.passwordInput.clear().type(password)
-            this.numberOfUsersInput.clear().type(numberOfUsers)
-            this.checkboxTermsAndCond.click()
-            this.submitBtn.click()
-        } 
-        else if(email == data.user.newEmail, password == data.user.password, numberOfUsers == data.user.correctNumberOfUsersSignUp) {
-            cy.intercept('POST','**/api/v2/register').as('signUp')
-            this.emailInput.type(email)
-            this.passwordInput.type(password)
-            this.numberOfUsersInput.type(numberOfUsers)
-            this.submitBtn.click()
-            cy.wait('@signUp').then((intercept) => {
-                expect(intercept.response.statusCode).to.eq(200)
-        })
-        }
+        cy.signup(email, password, numberOfUsers)
     }
 }
