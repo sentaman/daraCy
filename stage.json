@@ -1,0 +1,8 @@
+{
+    "baseUrl" : "https://vivifyscrum-stage.com/",
+    "viewportHeight" : 700,
+    "viewportWidth" : 1200,
+    "env" : {
+        "enviroment" : "stage"
+    }
+}

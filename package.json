@@ -4,7 +4,12 @@
   "description": "A repo",
   "main": "index.js",
   "scripts": {
-    "cypress": "./node_modules/.bin/cypress open"
+    "cypress": "./node_modules/.bin/cypress open",
+    "cypress-cy-stage": "cypress open --config-file cy-stage.json",
+    "cypress-stage": "cypress open --config-file stage.json",
+    "cy:stage": "cypress open --env configFile=stage",
+    "cy:qa-stage": "cypress open --env configFile=qa-stage",
+    "test:reporting" : "node scripts/test-report.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +25,11 @@
     "faker": "^5.5.3"
   },
   "devDependencies": {
-    "cypress": "^8.7.0"
+    "axios": "^0.24.0",
+    "cypress": "^8.7.0",
+    "fs-extra": "^10.0.0",
+    "mochawesome": "^7.0.1",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^6.0.1"
   }
 }
