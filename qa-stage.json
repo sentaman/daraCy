@@ -1,0 +1,8 @@
+{
+    "baseUrl" : "https://cypress.vivifyscrum-stage.com/",
+    "responseTimeout" : 45000,
+    "requestTimeout" : 10000,
+    "env" : {
+        "enviroment" : "qa-stage"
+    }
+}
